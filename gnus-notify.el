@@ -2,9 +2,9 @@
 
 ;; Author: Mark Triggs <mark@dishevelled.net>
 ;; Version: 0.1.2
-;; Package-Version: 20180228.2000
+;; Package-Version: 20180228.210000
 ;; Keywords: mail tools
-;; Package-Requires: ((emacs "24.4")
+;; Package-Requires: ((emacs "24.4"))
 ;; Contributions from: Frederic Couchet <fcouchet AT april.org>
 
 ;; This file is free software; you can redistribute it and/or modify
@@ -109,7 +109,7 @@ Each hook should take a single argument - the GROUP to be selected")
                 (cl-list*
                   (list ':propertize
                     (if gnus-notify-show-unread-counts
-                      (format "⸢%s%s⸥"
+                      (format "%s%s"
                         (gnus-mst-notify-shorten-group-name
                           (car sublist))
                         (gnus-group-unread (car sublist)))
@@ -120,7 +120,7 @@ Each hook should take a single argument - the GROUP to be selected")
                     'keymap map
                     'help-echo "Visit this group")
                   (if (cdr sublist)
-                    (list ", ")
+                    (list " ")
                     nil))))
           gnus-mst-notify-groups)
         (list "⸥ ")))
